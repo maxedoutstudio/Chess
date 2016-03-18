@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Board {
 	
@@ -31,17 +33,32 @@ public class Board {
 		
 		File file = new File(fileName);
 		
-		FileWriter 
+		try{
 		
-		
-		for(int i = 0;i<board.length;i++){
+			FileWriter writer = new FileWriter(fileName);
 			
-			for(int j = 0;j<board[i].length;j++){
+			
+			for(int i = 0;i<board.length;i++){
 				
-				
+				for(int j = 0;j<board[i].length;j++){
+					
+					if(board[i][j] == null){
+						writer.write("Empty");
+					} else {
+						writer.write(board[i][j].toString());
+					}
+					
+					if(j != board[i].length){
+						writer.write(",");
+					}
+					
+				}
 			}
+			
+			writer.close();
+		} catch (IOException e) {
+			
 		}
-		
 	}
 	
 

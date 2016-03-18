@@ -1,5 +1,5 @@
 
-public class Piece {
+public abstract class Piece {
 	
 	//Static members
 	
@@ -18,5 +18,9 @@ public class Piece {
 	Piece(boolean player){
 		this.player = player;
 	}
+	
+	//Abstract stuff
+	
+	public abstract String toString();
 
 }
