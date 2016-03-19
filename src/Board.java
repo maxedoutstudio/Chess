@@ -15,24 +15,89 @@ public class Board {
 	
 	private Piece[][] board;
 	
-	Board(){
+	Board(String fileName){
+		loadFile(fileName);
+	}
+	
+	//Movement related
+	
+	public void movePiece(int[] p1, int[] p2){
 		
-		board = new Piece[BOARD_SIZE][BOARD_SIZE];
+		//Gets the piece at p1
 		
-		for(int i = 0;i<board.length;i++){
-			
-			for(int j = 0;j<board[i].length;j++){
-				
-			}
-			
+		Piece p = board[p1[0]][p1[1]];
+		
+		if(p == null){
+			//@TODO Add validation for p1 not being null
 		}
+		
+		//@TODO Add turn validation
+		
+		//Checks the piece name
+		
+		String name = p.getName();
+		
+		
+		//@TODO Call their respective function
+		
+	}
+	
+	//Individual piece movements
+	
+	public void movePawn(int[] p1,int p2[]){
+		
+		//Checks which type of move it is
+		
+		//if(p2 == )
 		
 	}
 	
 	
+	//Getters 
+	
+	public Piece getPiece(int[] position){
+		return board[position[0]][position[1]];
+	}
+	
+	public void getPossibleMoves(int[] position){
+		
+		Piece p = board[position[0]][position[1]];
+		
+		//Checks which piece it is
+		
+		String name = p.getName();
+		
+		//Calls the respective function
+		
+		if(name.equals("Pawn")){
+			getPossiblePawnMoves(position);
+		}
+		
+	}
+	
+	//Piece types get possible moves
+	
+	public void getPossiblePawnMoves(int[] position){
+		
+		//@TODO Add en passant logic
+		
+		//Checks if the piece is on its starting row
+		
+		boolean startingRow = false;
+		
+		//
+		
+		
+	}
+	
+	
+	public boolean isCheck(){
+		
+	}
+	
 	//Saving and loading
 	
-	public void saveFile(String fileName) throws IOException,FileNotFoundException{
+	public void saveFile(String fileName) {
 		
 		File file = new File(fileName);
 		
@@ -68,7 +133,7 @@ public class Board {
 
 	}
 	
-	public void loadFile(String fileName) throws IOException,FileNotFoundException{
+	public void loadFile(String fileName) {
 		
 		File file = new File(fileName);
 		
